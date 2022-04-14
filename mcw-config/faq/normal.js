@@ -22,7 +22,6 @@ module.exports = {
     .setColor(Config.colors.sketch)
     .setFooter('I hope this helps you <3', message.author.avatarURL())
     .setTimestamp(new Date('Sunday, March 13, 2022, 6:28:00'))  
-
     
   const embed2 = new Discord.MessageEmbed()
     .setTitle(emojis.faq+' Frequently Asked Questions'+emojis.feather.left).setURL(Config.link.discord)
@@ -46,6 +45,7 @@ module.exports = {
     .setColor(Config.colors.sketch)
     .setFooter('I hope this helps you <3', message.author.avatarURL())
     .setTimestamp(new Date('Sunday, March 13, 2022, 6:28:00'))
+
     
   message.channel.send(embed).then(FAQ => {
       FAQ.react(emojis.back[0])

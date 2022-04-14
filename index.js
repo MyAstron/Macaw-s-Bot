@@ -57,7 +57,7 @@ client.on("message", async(message) => {
     } else
     if (Config.faqs.some(faqs => contador.includes(faqs))) { /*FAQ's Command*/
         let cmd = require('./cmd/faqs.js')
-      cmd.use(Discord, message, Config, command)
+      cmd.use(Discord, message, Config, command, client)
       /* const embed = new Discord.MessageEmbed()
         .setAuthor(message.author.username+`#${message.author.discriminator}`, message.author.avatarURL({dynamic: true}))
         .setTitle(`**__<:feather_right:855233493365424128>  FAQ - MACAW'S - SKETCH  <:feather_left:855233831984824330>__**`).setURL(message.url)
