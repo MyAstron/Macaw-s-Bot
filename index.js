@@ -32,33 +32,33 @@ client.on("message", async(message) => {
   const Config = require('./config.js')
   const args = message.content.slice(prefix.length).trim().split(/ +g/);
   const command = args.shift();
-  // let redes = ;
   let roles = [prefix+"rolInfo", prefix+"roleInfo", prefix+"role", prefix+"rol"];
   let bots = [prefix+"botInfo", prefix+"bot"];
   let channels = [prefix+"channelInfo", prefix+"channel"];
   let users = [prefix+"userInfo", prefix+"user"];
   let servers = [prefix+"serverInfo", prefix+"server"];
-    let faqs = [prefix+"faq", prefix+"FAQ"];
   let contador = message.content.toLowerCase();
   
   /*
    *      Command Parameter's:
    *        - cmd.use(Discord, message, Config)
-   *            # Client
-   *            # args
-   *            # %command_use%
    *            # command
    *            # prefix
+   *            # Client
+   *            # args
+   *            # %command_use% 
    *            # %mod%
   */
   
-    if (Config.redes.some(sociales => command == sociales)) { 
+    if (Config.net.some(sociales => command == sociales)) { 
       //  Network's Command
         let cmd = require('./cmd/networks.js')
       cmd.use(Discord, message, Config)
     } else
-    if (faqs.some(faqs => contador.includes(faqs))) { /*FAQ's Command*/
-      const embed = new Discord.MessageEmbed()
+    if (Config.faqs.some(faqs => contador.includes(faqs))) { /*FAQ's Command*/
+        let cmd = require('./cmd/faqs.js')
+      cmd.use(Discord, message, Config, command)
+      /* const embed = new Discord.MessageEmbed()
         .setAuthor(message.author.username+`#${message.author.discriminator}`, message.author.avatarURL({dynamic: true}))
         .setTitle(`**__<:feather_right:855233493365424128>  FAQ - MACAW'S - SKETCH  <:feather_left:855233831984824330>__**`).setURL(message.url)
         .addFields({
@@ -115,7 +115,7 @@ client.on("message", async(message) => {
             FAQ.edit(embed2);
           }
         }
-      });
+      });*/
     } else
     if (message.content.startsWith(prefix + 'say')) { /*Say Command*/
       const error = new Discord.MessageEmbed()

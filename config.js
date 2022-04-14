@@ -15,14 +15,24 @@ module.exports = {
   },
 
   /*                            Comand's                             */
-  redes: ["networks", "net", "ntw"],
+  net:   ["networks", "net", "ntw"],
+  faqs:  ["faq", "faqs", "FAQ", "FAQS", "FAQs"],
 
   /*                             Emoji's                             */
-  emoji: {
+  emojis: {
     emoti: '<:macaws:855234526992007178> ',
+    back: ['<:back:961325761564909588>', '961325761564909588'],
+    next: ['<:next:961325761292271657>', '961325761292271657'],
+    yes: '<:okey:960957932068036648>',
+    nop: '<:not:960957931698941972>',
     feather: {
       right: '<:feather_right:855233493365424128> ',
-      left: '<:feather_left:855233831984824330> '
+      left: ' <:feather_left:855233831984824330>'
+    },
+
+    // Macaw's Custom Emojis
+    mcw: {
+      wink: '<:mcw_wink:958767236150087680>'
     },
 
     // Emoji's from Network Command
@@ -35,17 +45,24 @@ module.exports = {
     twitter: '<:twitter:963877578786107442> ',
     patreon: '<:patreon:963878933202370570> ',
     github: '<:github:963878605891440710> ',
-    craft: '<:craft:861985782385344564> '
+    craft: '<:craft:861985782385344564> ',
+
+    // Emoji's from FAQ Command
+    question: '<:question:854384102144212992>',
+    answer: '<:answer:854384101917196308>',
+    faq: '<:faq:855245141932638248>'
   },
   
   /*                              Link's                             */
   link: {
+    faq: 'https://i.ibb.co/8jxn7Y0/emoji66.png',
+    
     // Link's from Network Command
     youtube: 'https://youtube.com/c/SketchMacaw',
     planet_mc: 'https://www.planetminecraft.com/member/sketchmacaw',
     instagram: 'https://instagram.com/sketch_macaw/',
     twitter: 'https://twitter.com/sketch_macaw',
-    curse_forge: 'https://curseforge.com/members/sketch_macaw/projects',
+    forge: 'https://curseforge.com/members/sketch_macaw/projects',
     patreon: 'https://bit.ly/36eSquT',
     github: 'https://github.com/sketchmacaw/MacawsModsIssues/issues',
     craft: 'https://docs.google.com/spreadsheets/d/1dBcTfrt-MH91NuCmJzqbFDjrLftuKMc08fp4bjGJCD4/',
