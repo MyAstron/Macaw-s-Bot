@@ -30,7 +30,7 @@ let prefix = process.env['prefix']
 
 client.on("message", async(message) => {
   const Config = require('./config.js')
-  const args = message.content.slice(prefix.length).trim().split(/ +g/);
+  const args = message.content.slice(prefix.length).trim().split(/ +/g);
   const command = args.shift();
   let roles = [prefix+"rolInfo", prefix+"roleInfo", prefix+"role", prefix+"rol"];
   let bots = [prefix+"botInfo", prefix+"bot"];
@@ -43,9 +43,9 @@ client.on("message", async(message) => {
    *      Command Parameter's:
    *        - cmd.use(Discord, message, Config)
    *            # command
-   *            # prefix
    *            # Client
    *            # args
+   *            # prefix
    *            # %command_use% 
    *            # %mod%
   */
@@ -54,81 +54,19 @@ client.on("message", async(message) => {
       //  Network's Command
         let cmd = require('./cmd/networks.js')
       cmd.use(Discord, message, Config)
+      
     } else
-    if (Config.faqs.some(faqs => contador.includes(faqs))) { /*FAQ's Command*/
+    if (Config.faqs.some(faqs => contador.includes(faqs))) { 
+      // FAQ's Command
         let cmd = require('./cmd/faqs.js')
       cmd.use(Discord, message, Config, command, client)
-      /* const embed = new Discord.MessageEmbed()
-        .setAuthor(message.author.username+`#${message.author.discriminator}`, message.author.avatarURL({dynamic: true}))
-        .setTitle(`**__<:feather_right:855233493365424128>  FAQ - MACAW'S - SKETCH  <:feather_left:855233831984824330>__**`).setURL(message.url)
-        .addFields({
-          "name": "**<:question:854384102144212992>** Do you plan to port your mods to Fabric?",
-          "value": "**<:answer:854384101917196308> ** Probably yes, not very soon though."
-        },
-        {
-          "name": "**<:question:854384102144212992>** Do you have any plans on downporting to 1.12.2 Forge?",
-          "value": "**<:answer:854384101917196308> ** Not likely, since 1.12.2 is the least one played."
-        },
-        {
-          "name": "**<:question:854384102144212992>** Can I use your mods in my modpack?",
-          "value": "**<:answer:854384101917196308> ** Yes, but if you are making it public you have to credit/list me for my mods."
-        },
-        {
-          "name": "**<:question:854384102144212992>**Why are you supporting 1.14 , 1.15 still?",
-          "value": "**<:answer:854384101917196308> ** Atleast for now they are quite easy to be backported to."
-        },
-        {
-          "name": "**<:question:854384102144212992>** Are you planning to include BOP addon for variations?",
-          "value": "**<:answer:854384101917196308> ** Later in the future, yes."
-        })
-        .setColor('2887ff')
-        .setThumbnail("https://media.discordapp.net/attachments/854373184555843594/854381108300480542/emoji66.png?width=450&height=450")
-        .setFooter('Page 1/2 • I hope this helps you ', 'https://media.discordapp.net/attachments/854373184555843594/857257190243041290/emoji80.png').setTimestamp()
-      const embed2 = new Discord.MessageEmbed()
-        .setAuthor(message.author.username+`#${message.author.discriminator}`, message.author.avatarURL({dynamic: true}))
-        .setTitle(`**__<:feather_right:855233493365424128>  FAQ - MACAW'S - SKETCH  <:feather_left:855233831984824330>__**`).setURL(message.url)
-        .addFields({
-          "name": "**<:question:854384102144212992>** Will there be any new mods?",
-          "value": "**<:answer:854384101917196308> ** Yes, I have plenty of them planned."
-        },
-        {
-          "name": "**<:question:854384102144212992>** I have a translation, will you add it?",
-          "value": "**<:answer:854384101917196308> ** Of course, just send it to me."
-        },
-        {
-          "name": "**<:question:854384102144212992>** Can i make an article about your mod somewhere, or just post it somewhere?",
-          "value": "**<:answer:854384101917196308> ** You can, but you have to use my official download links from curseforge. They cannot be modified!!"
-        })
-        .setColor('2887ff')
-        .setThumbnail("https://media.discordapp.net/attachments/854373184555843594/854381108300480542/emoji66.png?width=450&height=450")
-        .setFooter('Page 2/2 • I hope this helps you ', 'https://media.discordapp.net/attachments/854373184555843594/857257190243041290/emoji80.png').setTimestamp()
-      const FAQ = await message.channel.send(embed);
-      FAQ.react("⬅️");
-      FAQ.react("↔️");
-      FAQ.react("➡️");
-      FAQ.awaitReactions((reaction, user) => {
-        if(message.author.id === user.id){
-          if(reaction.emoji.name === '⬅️'){
-            FAQ.edit(embed);
-          }else
-          if(reaction.emoji.name === '➡️'){
-            FAQ.edit(embed2);
-          }
-        }
-      });*/
+      
     } else
-    if (message.content.startsWith(prefix + 'say')) { /*Say Command*/
-      const error = new Discord.MessageEmbed()
-        .setAuthor(message.author.username+`#${message.author.discriminator}`, message.author.avatarURL({ dynamic: true}))
-        .setTitle("<a:error:858140885284028446>    Error   | Which is the message?! ")
-        .setDescription(" ```ml\n mcw!say  'text'```").setColor("ff2828")
-        .setFooter("Fix the error for the command to run", "https://media.discordapp.net/attachments/854373184555843594/858145457192435762/emoji91.png?width=450&height=450").setTimestamp()
-      const args = message.content.slice(prefix.length).trim().split(/ +/g);
-      const command = args.shift().toLowerCase();
-      let texto = args.join(' ');
-      if(!texto) return message.channel.send(error);
-      message.delete();
-      message.channel.send(texto)
+    if (message.content.startsWith(prefix+'say')) { 
+      // Say Command
+        let cmd = require('./cmd/say.js')
+      cmd.use(Discord, message, Config, args)
+      
     } else
     if (message.content.startsWith(prefix + 'kick')) { /*kick Command*/
       const error1 = new Discord.MessageEmbed()

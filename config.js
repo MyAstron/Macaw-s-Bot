@@ -23,8 +23,10 @@ module.exports = {
     emoti: '<:macaws:855234526992007178> ',
     back: ['<:back:961325761564909588>', '961325761564909588'],
     next: ['<:next:961325761292271657>', '961325761292271657'],
-    yes: ['<:okey:960957932068036648>', '960957932068036648'],
-    nop: ['<:not:960957931698941972>', '960957931698941972'],
+    yes: ["<:mcw_yes:689943132393177174>", "689943132393177174"],
+      // ['<:okey:960957932068036648>', '960957932068036648'],
+    nop: ["<:mcw_no:870970236130693170>", "870970236130693170"],
+      // ['<:not:960957931698941972>', '960957931698941972'],
     feather: {
       right: '<:feather_right:855233493365424128> ',
       left: ' <:feather_left:855233831984824330>'
@@ -32,7 +34,8 @@ module.exports = {
 
     // Macaw's Custom Emojis
     mcw: {
-      wink: '<:mcw_wink:958767236150087680>'
+      wink: '<:mcw_wink:958767236150087680> ',
+      what: '<:mcw_what:928607286614716436> '
     },
 
     // Emoji's from Network Command
@@ -56,6 +59,7 @@ module.exports = {
   /*                              Link's                             */
   link: {
     faq: 'https://i.ibb.co/8jxn7Y0/emoji66.png',
+    feather_red: 'https://i.ibb.co/sjQTbwQ/emoji91.png',
     
     // Link's from Network Command
     youtube: 'https://youtube.com/c/SketchMacaw',
