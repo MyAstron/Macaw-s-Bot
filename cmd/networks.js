@@ -5,7 +5,7 @@ module.exports = {
     
   const embed = new Discord.MessageEmbed()
     .setAuthor(message.member.user.tag, message.author.avatarURL({ dynamic: true }))
-    .setTitle(emojis.feather.right+`Networks from Sketch Macaw's`+emojis.feather.left)
+    .setTitle(emojis.feather.right +`Networks from 「 Sketch Macaw's 」 `+ emojis.feather.left)
     .setURL(links.discord)
     .setColor(Config.colors.sketch)
     .addFields({
