@@ -21,6 +21,8 @@ module.exports = {
   /*                             Emoji's                             */
   emojis: {
     emoti: '<:macaws:855234526992007178> ',
+    dnd: ['<:dnd:958095131838398544>', '958095131838398544'],
+    online: ['<:online:958095132031332463>', '958095132031332463'],
     back: ['<:back:961325761564909588>', '961325761564909588'],
     next: ['<:next:961325761292271657>', '961325761292271657'],
     yes: ["<:mcw_yes:689943132393177174>", "689943132393177174"],
@@ -34,8 +36,17 @@ module.exports = {
 
     // Macaw's Custom Emojis
     mcw: {
+      // From the Avatar
       wink: '<:mcw_wink:958767236150087680> ',
-      what: '<:mcw_what:928607286614716436> '
+      what: '<:mcw_what:928607286614716436> ',
+      heh: '<:mcw_heh:958767236015882280> ',
+      knife: '<:mcw_knife:959043866877636648> ',
+      angry: '<:mcw_angry:870753683225313291> ',
+      work: '<:mcw_working:959043364911743016> ',
+
+      // From the Bot
+      ctg: '<:mcw_category:860205925725503559>',
+      rol: '<:mcw_rol:859960410151976970>'
     },
 
     // Emoji's from Network Command

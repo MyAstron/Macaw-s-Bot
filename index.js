@@ -68,41 +68,11 @@ client.on("message", async(message) => {
       cmd.use(Discord, message, Config, args)
       
     } else
-    if (message.content.startsWith(prefix + 'kick')) { /*kick Command*/
-      const error1 = new Discord.MessageEmbed()
-        .setAuthor(message.author.username+`#${message.author.discriminator}`, message.author.avatarURL({ dynamic: true}))
-        .setTitle("<a:error:858140885284028446>    Error   | You didn't mention anyone to kick out! ")
-        .setDescription(" ```ml\n mcw!kick  '@user' razon```").setColor("ff2828")
-        .setFooter("Fix the error for the command to run", "https://media.discordapp.net/attachments/854373184555843594/858145457192435762/emoji91.png?width=450&height=450").setTimestamp()
-      const error2 = new Discord.MessageEmbed()
-        .setAuthor(message.author.username+`#${message.author.discriminator}`, message.author.avatarURL({ dynamic: true}))
-        .setTitle("<a:error:858140885284028446>    Error   | You cannot expel yourself! ")
-        .setColor("ff2828")
-        .setFooter("Fix the error for the command to run", "https://media.discordapp.net/attachments/854373184555843594/858145457192435762/emoji91.png?width=450&height=450").setTimestamp()
-      const error3 = new Discord.MessageEmbed()
-        .setAuthor(message.author.username+`#${message.author.discriminator}`, message.author.avatarURL({ dynamic: true}))
-        .setTitle("<a:error:858140885284028446>    Error   | You do not have permissions to evict people! ")
-        .setColor("ff2828")
-        .setFooter("Fix the error for the command to run", "https://media.discordapp.net/attachments/854373184555843594/858145457192435762/emoji91.png?width=450&height=450").setTimestamp()
-      const error4 = new Discord.MessageEmbed()
-        .setAuthor(message.author.username+`#${message.author.discriminator}`, message.author.avatarURL({ dynamic: true}))
-        .setTitle("<a:error:858140885284028446>    Error   | I do not have permissions to expel people! ")
-        .setColor("ff2828")
-        .setFooter("Fix the error for the command to run", "https://media.discordapp.net/attachments/854373184555843594/858145457192435762/emoji91.png?width=450&height=450").setTimestamp()
-      let canal = message.channel;
-      let kickeado = message.mentions.users.first();
-      let razon = args.slice(1).join(' ');
-      if (!kickeado) return message.channel.send(error1)
-      if (message.author === kickeado) return message.channel.send(error2)
-      if (!message.member.hasPermission("KICK_MEMBERS")) return message.channel.send(error3)
-      if (!message.guild.me.hasPermission("KICK_MEMBERS")) return message.channel.send(error4)
-      message.guild.member(kickeado).kick(razon);
-        const embedkick = new Discord.MessageEmbed()
-          .setAuthor(kickeado.username+`#${kickeado.discriminator}`, message.guild.iconURL({ dynamic: true }))
-          .setDescription("**¡¡ "+kickeado.username+" • has been kicked from the server!!** \n Razon: "+razon)
-          .setThumbnail(kickeado.avatarURL({ dynamic: true }))
-          .setFooter("Responsible moderator: "+message.author.username, message.author.avatarURL({ dynamic: true })).setTimestamp().setColor("2887ff")
-      canal.send({ embed: embedkick }); console.log(kickeado.username + " was expelled for " + message.author.username)
+    if (message.content.startsWith(prefix + 'kick')) { 
+      // Kick Command
+        let cmd = require('./cmd/kick.js')
+      cmd.use(Discord, message, Config, args)
+      
     } else
     if (message.content.startsWith(prefix + 'ban')) { /*ban Command*/
       const error1 = new Discord.MessageEmbed()
@@ -1003,13 +973,14 @@ client.on("message", async(message) => {
 });
 client.on("guildMemberAdd", (member) => {
   consloe.log(`Ha ingresado ${memebe.name}`);
-    client.channels.cache.get("645369658417086465").send('Hello '+member.user+':wave:');
+    let canal = client.channels.cache.get("645360922252148759")
+  canal.send(member.user.id+' Welcome to '+member.guild.name);
   const Hello = new Discord.MessageEmbed().setTimestamp()
-    .setThumbanil('https://images-ext-2.discordapp.net/external/PWUStgKeibhyAPattORN8rg49Hp09GriF9tijWm5B-w/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/228951733152251904/4de00c2c02b5caf301931ea43939b6d4.webp?width=676&height=676')
+    .setThumbanil(require('./config.js').link.sketch.avatar)
     .setAuthor(`Welcome to ${member.guild.name}`)
     .setFooter('🔮Entry time')
     .setDescription('> 🎉 With you we are `'+member.guild.memberCount + ' users`\n\n Choose your role in <#666559514346127371>')
-  client.channels.cache.get("645369658417086465").send(Hello);
+  // client.channels.cache.get("645360922252148759").send(Hello);
   member.send(Hello);
 })
 client.login(process.env.token);
