@@ -60,6 +60,7 @@ module.exports = {
     patreon: '<:patreon:963878933202370570> ',
     github: '<:github:963878605891440710> ',
     craft: '<:craft:861985782385344564> ',
+    trello: '<:trello:964366417388511242> ',
 
     // Emoji's from FAQ Command
     question: '<:question:854384102144212992>',
@@ -82,6 +83,7 @@ module.exports = {
     github: 'https://github.com/sketchmacaw/MacawsModsIssues/issues',
     craft: 'https://docs.google.com/spreadsheets/d/1dBcTfrt-MH91NuCmJzqbFDjrLftuKMc08fp4bjGJCD4/',
     discord: 'https://discord.gg/6bzYNcJbjt',
+    trello: 'https://trello.com/b/OHHQN1MD/macaws-mods',
 
   // Sketch Macaw's Img's
     sketch: {

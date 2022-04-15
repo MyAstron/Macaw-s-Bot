@@ -17,7 +17,7 @@ function presence() {
     status: "idle",
     activity: {
       name: " Macaw's Mods || mcw!help",
-      type: "PLAYING"
+      type: "WATCHING"
     }
   })
 }
@@ -44,7 +44,7 @@ client.on("message", async(message) => {
    *        - cmd.use(Discord, message, Config)
    *            # command
    *            # Client
-   *            # args
+   *            # args *
    *            # prefix
    *            # %command_use% 
    *            # %mod%
@@ -74,40 +74,11 @@ client.on("message", async(message) => {
       cmd.use(Discord, message, Config, args)
       
     } else
-    if (message.content.startsWith(prefix + 'ban')) { /*ban Command*/
-      const error1 = new Discord.MessageEmbed()
-        .setAuthor(message.author.username+`#${message.author.discriminator}`, message.author.avatarURL({ dynamic: true}))
-        .setTitle("<a:error:858140885284028446>    Error   | You didn't mention anyone to ban! ")
-        .setDescription(" ```ml\n mcw!ban  '@user' razon```").setColor("ff2828")
-        .setFooter("Fix the error for the command to run", "https://media.discordapp.net/attachments/854373184555843594/858145457192435762/emoji91.png?width=450&height=450").setTimestamp()
-      const error2 = new Discord.MessageEmbed()
-        .setAuthor(message.author.username+`#${message.author.discriminator}`, message.author.avatarURL({ dynamic: true}))
-        .setTitle("<a:error:858140885284028446>    Error   | You can't ban yourself! ")
-        .setColor("ff2828")
-        .setFooter("Fix the error for the command to run", "https://media.discordapp.net/attachments/854373184555843594/858145457192435762/emoji91.png?width=450&height=450").setTimestamp()
-      const error3 = new Discord.MessageEmbed()
-        .setAuthor(message.author.username+`#${message.author.discriminator}`, message.author.avatarURL({ dynamic: true}))
-        .setTitle("<a:error:858140885284028446>    Error   | You do not have permissions to ban people! ")
-        .setColor("ff2828")
-        .setFooter("Fix the error for the command to run", "https://media.discordapp.net/attachments/854373184555843594/858145457192435762/emoji91.png?width=450&height=450").setTimestamp()
-      const error4 = new Discord.MessageEmbed()
-        .setAuthor(message.author.username+`#${message.author.discriminator}`, message.author.avatarURL({ dynamic: true}))
-        .setTitle("<a:error:858140885284028446>    Error   | I don't have permissions to ban people.! ")
-        .setColor("ff2828")
-        .setFooter("Fix the error for the command to run", "https://media.discordapp.net/attachments/854373184555843594/858145457192435762/emoji91.png?width=450&height=450").setTimestamp()
-      let canal = message.channel;
-      let baneado = message.mentions.users.first();
-      let razon = args.slice(1).join(' ');
-      if (!baneado) return message.channel.send(error1)
-      if (message.author === baneado) return message.channel.send(error2)
-      if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send(error3)
-      if (!message.guild.me.hasPermission("BAN_MEMBERS")) return message.channel.send(error4);message.guild.members.ban(baneado, { reason: razon });
-        const embedban = new Discord.MessageEmbed()
-          .setAuthor(baneado.username+`#${baneado.discriminator}`, message.guild.iconURL({ dynamic: true }))
-          .setDescription("**¡¡ "+baneado.username+" • has been banned from the server!!** \n Razon: "+razon)
-          .setThumbnail(baneado.avatarURL({ dynamic: true }))
-          .setFooter("Responsible moderator: "+message.author.username, message.author.avatarURL({ dynamic: true })).setTimestamp().setColor("2887ff")
-        canal.send({ embed: embedban }); console.log(baneado.username + " was banned by " + message.author.username)
+    if (message.content.startsWith(prefix + 'ban')) { 
+      // Ban Command
+        let cmd = require('./cmd/ban.js')
+      cmd.use(Discord, message, Config, args)
+      
     } else
     if (message.content.startsWith(prefix + 'mod doors')) { /* Mod Doors Command */
       const doors = new Discord.MessageEmbed()
@@ -598,11 +569,11 @@ client.on("message", async(message) => {
         {
           "name": "> <:util_wrech:854896616225767474> ┋ Util commands • 8",
           "value": "**~~`command`~~ | `avatar` | `say` | `botInfo` | `roleInfo` | `channelInfo` | `userInfo` | `serverInfo`**"
-        },
+        }/*,
         {
           "name": "> <:extras:854890985342369803>  ┋ Extra commands • 8",
           "value": "**~~`mine` | `fish` | `rps` | `throw` | `invite` | `8ball` | `avatarMC` | `skinMC`~~ **"
-        }).setColor('4c82c4').setFooter("Use mcw!command [command]  to view command information").setTimestamp()
+        }*/).setColor('4c82c4').setFooter("Use mcw!command [command]  to view command information").setTimestamp()
       message.channel.send(embed);
     } else
     if (bots.some(bots => contador.includes(bots))) { /* botInfo Command */
@@ -972,14 +943,24 @@ client.on("message", async(message) => {
       }
 });
 client.on("guildMemberAdd", (member) => {
-  consloe.log(`Ha ingresado ${memebe.name}`);
-    let canal = client.channels.cache.get("645360922252148759")
-  canal.send(member.user.id+' Welcome to '+member.guild.name);
+  console.log(`${member} Ingreso a ${member.guild.name}`);
+  
+  if(member.guild.id == '822536864668844093'){
+    canal = client.channels.cache.get("823242411949031476")
+  }else
+  if(member.guild.id == '645360921673465857'){
+    client.channels.cache.get("645360922252148759").send("> "+member+" is New in the Server!!").then(c => {
+      setTimestamp(() => { c.delete() }, 1800)
+    })
+    canal = client.channels.cache.get("835456021324365825")
+  }
+  canal.send('> <@'+member.user.id+'> Welcome to '+member.guild.name/* +"\nUse `mcw!info` from know's the general info!"*/);
   const Hello = new Discord.MessageEmbed().setTimestamp()
-    .setThumbanil(require('./config.js').link.sketch.avatar)
-    .setAuthor(`Welcome to ${member.guild.name}`)
+    .setThumbnail(require('./config.js').link.sketch.avatar)
+    .setAuthor(`Welcome to ${member.guild.name}`, member.guild.iconURL({ dynamic: true }), require('./config.js').link.discord)
     .setFooter('🔮Entry time')
-    .setDescription('> 🎉 With you we are `'+member.guild.memberCount + ' users`\n\n Choose your role in <#666559514346127371>')
+    .setColor(require('./config.js').colors.sketch)
+    .setDescription('> 🎉 With you we are `'+member.guild.memberCount + ' users`\n\n **Choose you\'r role** in <#952530009472520242>\n **Read the Rule\'s** in <#831485064525250560>\n Or Use **`mcw!help`** in <#809684181537914910> from see my commands and information.')
   // client.channels.cache.get("645360922252148759").send(Hello);
   member.send(Hello);
 })

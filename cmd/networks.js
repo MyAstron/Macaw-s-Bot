@@ -36,6 +36,10 @@ module.exports = {
       name: emojis.craft+'Crafting Recipes', 
       value: '[Google Link]('+links.craft+')', 
       inline: true
+    },{
+      name: emojis.trello+'Trello',
+      value: '[Trello Link]('+links.trello+')',
+      inline: true
     })
     .setFooter('Follow Me !!', links.sketch.avatar).setTimestamp()
   message.channel.send(embed)
