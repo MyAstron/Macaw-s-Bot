@@ -2,7 +2,7 @@ module.exports = {
   use: async (Discord, message, Config, command, client) => {
   let emojis = Config.emojis
 
-    if(command){
+    if(Config.faqs.some(faqs => command == faqs)){
         const faq = require('../mcw-config/faq/normal.js')
       faq.req(Discord, message, Config, emojis)
     }else{

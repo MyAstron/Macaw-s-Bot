@@ -17,6 +17,10 @@ module.exports = {
   /*                            Comand's                             */
   net:   ["networks", "net", "ntw"],
   faqs:  ["faq", "faqs", "FAQ", "FAQS", "FAQs"],
+  mods:  [
+    "roof", "roofs", "roof's", "Roof", "Roofs", "Roof's"  ,
+    ""
+  ],
 
   /*                             Emoji's                             */
   emojis: {
@@ -43,10 +47,12 @@ module.exports = {
       knife: '<:mcw_knife:959043866877636648> ',
       angry: '<:mcw_angry:870753683225313291> ',
       work: '<:mcw_working:959043364911743016> ',
+      hacker: '<:mcw_hackerman:870967494817488896> ',
 
       // From the Bot
-      ctg: '<:mcw_category:860205925725503559>',
-      rol: '<:mcw_rol:859960410151976970>'
+      ctg: '<:mcw_category:860205925725503559> ',
+      rol: '<:mcw_rol:859960410151976970> ',
+      wrech: '<:util_wrech:854896616225767474> '
     },
 
     // Emoji's from Network Command

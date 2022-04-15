@@ -1,5 +1,5 @@
 /*
- *    This Configuration & Information Is only from the Macaw's Mod
+ *    This Configuration & Information Is only from the Macaw's Roof's Mod
  */
 
 module.exports = {
@@ -7,7 +7,7 @@ module.exports = {
   
   description: ` One of the first mods made by Macaw. It allows you to build an interesting roof in many ways and styles that will suit everyone's needs.`,
 
-  emoji: '<:roof:830778121132834828>',
+  emoji: ['<:roof:830778121132834828>', '830778121132834828'],
   
   minecraft_versions: {
     fabric: '1.18.2',
@@ -15,7 +15,7 @@ module.exports = {
   },
   
   link: {
-    curseforge: 'https://www.curseforge.com/minecraft/mc-mods/macaws-roofs/files',
+    forge: 'https://www.curseforge.com/minecraft/mc-mods/macaws-roofs/files',
     youtube: 'https://youtu.be/QkOnZcAbpoo',
     img: {
       banner: 'https://i.ibb.co/QKV0Q39/91xqC1l.png',

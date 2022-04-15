@@ -282,7 +282,9 @@ client.on("message", async(message) => {
         .setFooter("Page 7/9 • I hope this helps you "+message.member.displayName, "https://images-ext-2.discordapp.net/external/jq2BBrYVWsiJPJ0bKA4LcTsGWMcocJCk2Pz-yx9y6Zw/%3Fwidth%3D676%26height%3D676/https/images-ext-2.discordapp.net/external/PWUStgKeibhyAPattORN8rg49Hp09GriF9tijWm5B-w/%253Fsize%253D1024/https/cdn.discordapp.com/avatars/228951733152251904/4de00c2c02b5caf301931ea43939b6d4.webp?width=608&height=608").setTimestamp()
       message.channel.send(fences);
     } else
-    if(message.content.startsWith(prefix+'mod')){ /* Mod Command */
+    if(message.content.startsWith(prefix+'mod')){ 
+      message.reply(Config.emojis.mcw.work+"Sorry the Command is in Maintenance and Improvements")
+      /* Mod Command *
       const mod = new Discord.MessageEmbed()
         .setAuthor(message.author.username, message.author.avatarURL({dynamic: true}))
         .setDescription("> **Index:** command `mod`, emoji 🏘️").setColor("4c82c4")
@@ -536,7 +538,7 @@ client.on("message", async(message) => {
             index.edit(paintings)
           }
         }
-      })
+      })*/
     } else
     if (message.content.startsWith(prefix + 'avatar')) { /* Avatar Command */
       let user = message.mentions.users.first();
@@ -557,24 +559,10 @@ client.on("message", async(message) => {
         message.channel.send(embed);
       }
     } else
-    if (message.content.startsWith(prefix + 'help')) { /* Help Command */
-      const embed = new Discord.MessageEmbed()
-        .setAuthor(message.author.username, message.author.avatarURL({dynamic: true}))
-        .setDescription("My prefix is: `mcw!`")
-        .setThumbnail(message.guild.iconURL({dynamic: true}))
-        .addFields({
-          "name": "> <:mcw_hackerman:689943134373019767>  ┋  Macaw's commands • 5",
-          "value": "**`mod` | `faq` | `network` | `craft` | ~~`list`~~**"
-        },
-        {
-          "name": "> <:util_wrech:854896616225767474> ┋ Util commands • 8",
-          "value": "**~~`command`~~ | `avatar` | `say` | `botInfo` | `roleInfo` | `channelInfo` | `userInfo` | `serverInfo`**"
-        }/*,
-        {
-          "name": "> <:extras:854890985342369803>  ┋ Extra commands • 8",
-          "value": "**~~`mine` | `fish` | `rps` | `throw` | `invite` | `8ball` | `avatarMC` | `skinMC`~~ **"
-        }*/).setColor('4c82c4').setFooter("Use mcw!command [command]  to view command information").setTimestamp()
-      message.channel.send(embed);
+    if (message.content.startsWith(prefix + 'help')) { 
+      // Help Command 
+        let cmd = require('./cmd/help.js')
+      cmd.use(Discord, message, Config, args)
     } else
     if (bots.some(bots => contador.includes(bots))) { /* botInfo Command */
       const embed = new Discord.MessageEmbed()
@@ -600,7 +588,7 @@ client.on("message", async(message) => {
           "inline": true
         },
         {
-          "name": "<:macaw:666289805470203905> **Working with:**",
+          "name": Config.emojis.mcw.work+" **Working with:**",
           "value": "**"+client.users.cache.size+"** macaws per day",
           "inline": true
         })
@@ -949,12 +937,9 @@ client.on("guildMemberAdd", (member) => {
     canal = client.channels.cache.get("823242411949031476")
   }else
   if(member.guild.id == '645360921673465857'){
-    client.channels.cache.get("645360922252148759").send("> "+member+" is New in the Server!!").then(c => {
-      setTimestamp(() => { c.delete() }, 1800)
-    })
-    canal = client.channels.cache.get("835456021324365825")
+    canal = client.channels.cache.get("645369658417086465")
   }
-  canal.send('> <@'+member.user.id+'> Welcome to '+member.guild.name/* +"\nUse `mcw!info` from know's the general info!"*/);
+  canal.send('> '+member+' Welcome to '+member.guild.name/* +"\nUse `mcw!info` from know's the general info!"*/);
   const Hello = new Discord.MessageEmbed().setTimestamp()
     .setThumbnail(require('./config.js').link.sketch.avatar)
     .setAuthor(`Welcome to ${member.guild.name}`, member.guild.iconURL({ dynamic: true }), require('./config.js').link.discord)
@@ -964,4 +949,5 @@ client.on("guildMemberAdd", (member) => {
   // client.channels.cache.get("645360922252148759").send(Hello);
   member.send(Hello);
 })
+
 client.login(process.env.token);
