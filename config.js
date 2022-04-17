@@ -4,6 +4,13 @@
 
 
 module.exports = {
+  bot: {
+    version: process.env['version'],
+    prefix: process.env['prefix'],
+    token: process.env['token']
+  },
+
+  
   /*                             Color's                            */
   colors: {
     sketch: '4c82c4',
@@ -17,10 +24,20 @@ module.exports = {
   /*                            Comand's                             */
   net:   ["networks", "net", "ntw"],
   faqs:  ["faq", "faqs", "FAQ", "FAQS", "FAQs"],
-  mods:  [
-    "roof", "roofs", "roof's", "Roof", "Roofs", "Roof's"  ,
-    ""
-  ],
+  dom:   ["Mod", "Mods", "Mod's", "mod", "mods", "mod's"],
+
+  // The Names from the Mod's in the command `mod`
+  mod:  {
+    bridg: ["bridge", "bridges", "bridge's", "Bridge", "Bridges", "Bridge's"],
+    door: ["door", "doors", "door's", "Door", "Doors", "Door's"],
+    fences: ["fence", "fences", "fence's", "wall", "walls", "wall's", "Fence", "Fences", "Fence's", "Wall", "Walls", "Wall's", "fence-wall", "fences-walls", "Fence-Wall", "Fences-Walls", "fence and wall", "fences and walls"],
+    furn: ["furniture", "furnitures", "furniture's", "Furniture", "Furnitures", "Furniture's"],
+    light: ["light", "lights", "light's", "lamp", "lamps", "lamp's", "Light", "Lights", "Light's", "Lamp", "Lamps", "Lamp's", "light-lamp", "lights-lamps", "Light-Lamp", "Lights-Lamps", "light and lamp", "lights and lamps"],
+    paint: ["paints", "paint", "paint's", "Paints", "Paint", "Paint's"],
+    roofs: ["roof", "roofs", "roof's", "Roof", "Roofs", "Roof's"],
+    trap: ["trapdoor", "trapdoors", "trapdoor's", "Trapdoor", "Trapdoor's", "trapdoors"],
+    window: ["window", "windows", "window's", "Window", "Windows", "Window's"]
+  },
 
   /*                             Emoji's                             */
   emojis: {
@@ -33,6 +50,10 @@ module.exports = {
       // ['<:okey:960957932068036648>', '960957932068036648'],
     nop: ["<:mcw_no:870970236130693170>", "870970236130693170"],
       // ['<:not:960957931698941972>', '960957931698941972'],
+    trash: ['<:close:958051196231360552>', '958051196231360552'],
+      // ['<:cancel:885671180101648474>', '885671180101648474'],
+    point: ['<:maximizate:958051196474650684>', '958051196474650684'], 
+      // ['<:sketch_point:964909024598437968>', '964909024598437968'],
     feather: {
       right: '<:feather_right:855233493365424128> ',
       left: ' <:feather_left:855233831984824330>'
@@ -48,11 +69,15 @@ module.exports = {
       angry: '<:mcw_angry:870753683225313291> ',
       work: '<:mcw_working:959043364911743016> ',
       hacker: '<:mcw_hackerman:870967494817488896> ',
+      smile: '<:mcw_smile:870741798765621328> ',
+      glass: '<:mcw_deal_with_it:928607286656663582> ',
 
       // From the Bot
       ctg: '<:mcw_category:860205925725503559> ',
       rol: '<:mcw_rol:859960410151976970> ',
-      wrech: '<:util_wrech:854896616225767474> '
+      wrech: '<:util_wrech:854896616225767474> ',
+      yes: '<:mcw_yes:689943132393177174> ',
+      clip: '<:mcw_paperclips:859964360566243390> '
     },
 
     // Emoji's from Network Command
@@ -78,6 +103,7 @@ module.exports = {
   link: {
     faq: 'https://i.ibb.co/8jxn7Y0/emoji66.png',
     feather_red: 'https://i.ibb.co/sjQTbwQ/emoji91.png',
+    loading: 'https://i.ibb.co/d5VdmNs/discord-loading.gif',
     
     // Link's from Network Command
     youtube: 'https://youtube.com/c/SketchMacaw',

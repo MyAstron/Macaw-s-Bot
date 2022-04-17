@@ -5,7 +5,7 @@ module.exports = {
     let colors = Config.colors
     
     const error1 = new Discord.MessageEmbed()
-      .setAuthor('mcw!kick  \'@user\' razon', link.feather_red)
+      .setAuthor('mcw!kick  \'@user\' reason', link.feather_red)
       .setTitle(emojis.mcw.what+"| You didn't mention anyone to kick out! ")
       .setColor(colors.mal)
       .setFooter("Are You Sure to Kick Out some one?").setTimestamp()
@@ -28,7 +28,7 @@ module.exports = {
       .addField(emojis.mcw.work+"Remember...", "> "+emojis.dnd[0]+" I need a Role to Stay on the Top from the Role's\n> "+emojis.online[0]+' My Beast Role need the permission `KICK_MEMBERS`\n If any of these **Requirement\'s** are not met, the command does\'t work')
       .setColor(colors.medio)
     const error6 = new Discord.MessageEmbed()
-      .setAuthor('mcw!kick  @user \'razon\'', link.feather_red)
+      .setAuthor('mcw!kick  @user \'reason\'', link.feather_red)
       .setTitle(emojis.mcw.what+"| You didn't say a reason for kick out! ")
       .setColor(colors.mal)
       .setFooter("Are You Sure to Kick Out some one?").setTimestamp()

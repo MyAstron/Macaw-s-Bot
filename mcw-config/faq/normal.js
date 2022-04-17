@@ -31,7 +31,7 @@ module.exports = {
       value: "> "+emojis.answer+"Yes, for now. Just like 1.17 and 1.18 (Fabric will be supported just for 1.18)"
     },{
       name: emojis.question+"Are you planning to include BOP addon for variations?",
-      value: "> "+emojis.answer+"You should check out "+Config.link.forge+" he has done some compatibility mods with Macaw's mods"
+      value: "> "+emojis.answer+"You should check out [Curse Forge Link]("+Config.link.forge+") he has done some compatibility mods with Macaw's mods"
     },{
       name: emojis.question+"Will there be any new mods?",
       value: "> "+emojis.answer+"Yes, just look in <#870681093605572688>, if you don't see this channel accept the rules in <#831485064525250560>"
@@ -45,9 +45,13 @@ module.exports = {
     .setColor(Config.colors.sketch)
     .setFooter('I hope this helps you <3', message.author.avatarURL())
     .setTimestamp(new Date('Sunday, March 13, 2022, 6:28:00'))
+  const mini = new Discord.MessageEmbed()
+    .setAuthor('Dashboard minimized', message.author.avatarURL())
+    .setColor(Config.colors.sketch)
 
     
   message.channel.send(embed).then(FAQ => {
+      FAQ.react(emojis.trash[0])
       FAQ.react(emojis.back[0])
       FAQ.react(emojis.next[0])
       FAQ.awaitReactions((react, user) => {
@@ -58,6 +62,10 @@ module.exports = {
           }else
           if(react.emoji.id == emojis.next[1]){
               FAQ.edit(embed2)
+            react.users.remove(user.id)
+          }else
+          if(react.emoji.id == emojis.trash[1]){
+              FAQ.edit(mini)
             react.users.remove(user.id)
           }
         }

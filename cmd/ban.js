@@ -1,11 +1,15 @@
 module.exports ={
+  description: 'Ban some one from %server%',
+  examples: '%prefix%ban @ %user% Is a Example',
+  usage: '%prefix%ban  < @User >  < Reason >',
+  permission: '`BAN_MEMBERS` - from the Bouth (Bot and User)',
   use: async (Discord, message, Config, args) => {
     let emojis = Config.emojis
     let link   = Config.link
     let colors = Config.colors
     
     const error1 = new Discord.MessageEmbed()
-      .setAuthor('mcw!ban  \'@user\' razon', link.feather_red)
+      .setAuthor('mcw!ban  \'@user\' reason', link.feather_red)
       .setTitle(emojis.mcw.what+"| You didn't mention anyone to banned! ")
       .setColor(colors.mal)
       .setFooter("Are You Sure to Ban some one?").setTimestamp()
@@ -28,7 +32,7 @@ module.exports ={
       .addField(emojis.mcw.work+"Remember...", "> "+emojis.dnd[0]+" I need a Role to Stay on the Top from the Role's\n> "+emojis.online[0]+' My Beast Role need the permission `BAN_MEMBERS`\n If any of these **Requirement\'s** are not met, the command does\'t work')
       .setColor(colors.medio)
     const error6 = new Discord.MessageEmbed()
-      .setAuthor('mcw!ban  @user \'razon\'', link.feather_red)
+      .setAuthor('mcw!ban  @user \'reason\'', link.feather_red)
       .setTitle(emojis.mcw.what+"| You didn't say a reason for Banned! ")
       .setColor(colors.mal)
       .setFooter("Are You Sure to Ban some one?").setTimestamp()
