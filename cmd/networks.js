@@ -1,4 +1,8 @@
 module.exports = {
+  description: 'See the Network\'s from Sketch',
+  examples: '%prefix%ntw`, `%prefix%networks',
+  usage: '%prefix%net',
+  permission: '`SEND_MESSAGES` - from the Bouth (Bot and User)',
   use: async (Discord, message, Config) => {
   let emojis = Config.emojis
   let links  = Config.link

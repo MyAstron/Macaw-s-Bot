@@ -1,4 +1,8 @@
 module.exports = {
+  description: 'Check All the mods for Macaw\'s Sketch',
+  examples: '%prefix%mod`\n`%prefix%mod Windows',
+  usage: '%prefix%mod [Mod Name]',
+  permission: '`SEND_MESSAGES` - from the Bouth (Bot and User)',
   use: async(Discord, message, Config, args, client) => {
   let colors = Config.colors
   let emojis = Config.emojis

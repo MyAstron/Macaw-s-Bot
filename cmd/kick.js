@@ -1,4 +1,8 @@
 module.exports = {
+  description: 'Kick Out Memebers from %server%',
+  examples: '%prefix%kick %user% Is a Example',
+  usage: '%prefix%kick <@User> <Reason>',
+  permission: '`KICK_MEMBERS` - from the Bouth (Bot and User)',
   use: async(Discord, message, Config, args) => {
     let emojis = Config.emojis
     let link   = Config.link

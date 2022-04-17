@@ -67,7 +67,7 @@ client.on("message", async(message) => {
     if (message.content.startsWith(prefix+'say')) { 
       // Say Command
         let cmd = require('./cmd/say.js')
-      cmd.use(Discord, message, Config, args, Util)
+      cmd.use(Discord, message, Config, client, args)
       
     } else
     if (message.content.startsWith(prefix + 'kick')) { 
