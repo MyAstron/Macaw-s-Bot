@@ -22,7 +22,7 @@ module.exports = {
   },
 
   /*                            Comand's                             */
-  net:   ["networks", "net", "ntw"],
+  net:   ["networks", "net", "ntw", "network"],
   faqs:  ["faq", "faqs", "FAQ", "FAQS", "FAQs"],
   dom:   ["Mod", "Mods", "Mod's", "mod", "mods", "mod's"],
 

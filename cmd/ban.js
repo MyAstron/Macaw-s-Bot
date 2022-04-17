@@ -1,7 +1,7 @@
 module.exports ={
   description: 'Ban some one from %server%',
-  examples: '%prefix%ban @ %user% Is a Example',
-  usage: '%prefix%ban  < @User >  < Reason >',
+  examples: '%prefix%ban @%user% Is a Example',
+  usage: '%prefix%ban <@User> <Reason>',
   permission: '`BAN_MEMBERS` - from the Bouth (Bot and User)',
   use: async (Discord, message, Config, args) => {
     let emojis = Config.emojis
